@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transfer Window - Space Mission Design Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Transfer Window</h1>
+<p>You are the mission architect. Pick a destination, design the spacecraft, and fit it on a rocket within budget. The game uses real orbital mechanics (Hohmann transfer and the rocket equation) with NASA planetary data.</p>
+</header>
+<main>
+<section class="panel" aria-label="Mission design">
+<h2>Destination</h2>
+<select id="dest"></select>
+<h2>Launch vehicle</h2>
+<select id="veh"></select>
+<h2>Propulsion</h2>
+<select id="eng"></select>
+<h2>Power system</h2>
+<select id="pow"></select>
+<h2>Antenna (communications)</h2>
+<select id="ant"></select>
+<h2>Crew: <span id="crewv">0</span></h2>
+<input type="range" id="crew" min="0" max="4" value="0" aria-label="Crew size">
+<h2>Payload</h2>
+<label class="chk"><input type="checkbox" id="cam" checked> Camera suite (1 t, 5 pts)</label>
+<label class="chk"><input type="checkbox" id="rad"> Radar mapper (2 t, 8 pts)</label>
+<label class="chk"><input type="checkbox" id="lan"> Lander (5 t, 15 pts, rocky planets only)</label>
+<label class="chk"><input type="checkbox" id="aero"> Aerobraking shield (1.5 t, 5 pts, Venus/Mars only)</label>
+<button id="launch">Launch mission</button>
+</section>
+<section>
+<canvas id="cv" width="700" height="460" aria-label="Transfer orbit animation"></canvas>
+<div class="stats">
+<div class="stat" id="s1"><b id="dv">-</b><span>Total delta-v (km/s)</span></div>
+<div class="stat" id="s2"><b id="days">-</b><span>Travel time (days)</span></div>
+<div class="stat" id="s3"><b id="mass">-</b><span>Launch mass (t)</span></div>
+<div class="stat" id="s4"><b id="cost">-</b><span>Cost (of 100 pts)</span></div>
+<div class="stat" id="s6"><b id="pwr">-</b><span>Power: available / needed (kW)</span></div>
+<div class="stat" id="s7"><b id="com">-</b><span>Data rate: available / needed (kbps)</span></div>
+<div class="stat" id="s5"><b id="dose">-</b><span>Crew radiation (mSv, limit 600)</span></div>
+</div>
+<div class="row"><span>Rocket capacity used</span><span id="cap">-</span></div>
+<div class="bar"><i id="capbar"></i></div>
+<div id="msg">Design your mission, then press Launch.</div>
+</section>
+</main>
+<footer>Data: NASA Planetary Fact Sheet (NSSDC) for orbit sizes, masses and radii; NASA radiation guidance for crew dose limits. Launch capacities from public vehicle specifications.</footer>
+<script src="script.js"></script>
+</body>
+</html>

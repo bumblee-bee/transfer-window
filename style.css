@@ -1,0 +1,30 @@
+:root{--bg:#0d1320;--panel:#161e30;--line:#27324a;--tx:#e8ecf3;--mut:#93a0b8;--amb:#f2b84b;--teal:#5ad1c4;--red:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
+header{padding:20px 20px 8px;max-width:1100px;margin:auto}
+h1{margin:0;font-size:1.9rem;letter-spacing:.5px}
+header p{margin:4px 0 0;color:var(--mut);max-width:70ch}
+main{max-width:1100px;margin:auto;padding:12px 20px 40px;display:grid;grid-template-columns:360px 1fr;gap:20px}
+@media(max-width:860px){main{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.panel h2{font-size:1rem;margin:14px 0 6px;color:var(--amb)}
+.panel h2:first-child{margin-top:0}
+select,button{font:inherit}
+select{width:100%;padding:9px;background:#0d1320;color:var(--tx);border:1px solid var(--line);border-radius:6px}
+label.chk{display:flex;gap:8px;align-items:center;padding:5px 0;cursor:pointer}
+input[type=range]{width:100%;accent-color:var(--amb)}
+.row{display:flex;justify-content:space-between;color:var(--mut);font-size:.9rem}
+#launch{margin-top:16px;width:100%;padding:13px;border:0;border-radius:8px;background:var(--amb);color:#1b1305;font-weight:700;font-size:1.05rem;cursor:pointer}
+#launch:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+canvas{width:100%;height:auto;background:#080d17;border:1px solid var(--line);border-radius:10px;display:block}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0}
+.stat{border-left:3px solid var(--teal);padding:2px 10px}
+.stat b{display:block;font-size:1.25rem}
+.stat span{color:var(--mut);font-size:.82rem}
+.stat.bad{border-color:var(--red)}
+.bar{height:10px;background:#0d1320;border-radius:6px;overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;background:var(--teal);width:0}
+#msg{margin-top:12px;padding:12px;border-radius:8px;background:#0d1320;border:1px solid var(--line);min-height:60px}
+#msg.ok{border-color:var(--teal)}#msg.fail{border-color:var(--red)}
+footer{max-width:1100px;margin:auto;padding:0 20px 30px;color:var(--mut);font-size:.82rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
